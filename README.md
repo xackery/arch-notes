@@ -115,7 +115,19 @@ I also flagged disablewhiletyping to 0, so I can use the touchpad while typing.
 ### Graphics
 - I had to install nvidia-470xx-dkms
 
+### Audio
+
+Out of the box my audio worked but was really tinny and low quality.
+`pactl info` resulted in PulseAudio on Pipewire.
+- `sudo pacman -S pipewire helvum`
+- `flatpak install easyeffects`
 
 ### AwesomeWM
 
 [my awesome-wm config is being trackeed elsewhere](https://github.com/xackery/awesome-wm)
+
+### Plex screen tearing
+
+if you're experiencing horizontal screen tearing,
+`sudo nvidia-settings`
+go to advanced, and set force composition pipeline to on, and you can preview if it fixes it. If it does, go ahead and save it to xorg.conf
