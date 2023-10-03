@@ -59,20 +59,52 @@ makepkg -si
 ```
 - Go into lxappearance and set the font to Fira Code Retina.
 - for alacritty font:
-  - `mkdir -p ~/.config/alacritty``
-  - `cp /usr/share/doc/alacritty/example/alacritty.yml ~/.config/alacritty/alacritty.yml``
+  - `mkdir -p ~/.config/alacritty`
+  - `cp /usr/share/doc/alacritty/example/alacritty.yml ~/.config/alacritty/alacritty.yml`
   - edit it namely: adding:
 ```yaml
 font:
-    normal:
-        family: Fira Code Retina
+  normal:
+    family: Fira Code Retina
+selection:
+  save_to_clipboard: true
+hints:
+  enabled:
+  - regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
+             [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+    hyperlinks: true
+    command: xdg-open
+    post_processing: true
+    mouse:
+      enabled: true
+      mods: None
 ```
 
 If discord fonts have [] blocks and other invalid stuff,
 `sudo pacman -S noto-fonts-extra` is the fix
 
+### Natural Scrolling
+
+It seems it was enabled for me by default, I wanted to disable it.
 
 I'm running a macbook pro mid 2014, so [this guide](https://wiki.archlinux.org/title/MacBookPro11,x) was helpful, but a lot of parts outdated.
+
+Seems *DO NOT* use symantics, it's old, use [libinput](https://wiki.archlinux.org/title/Libinput) instead.
+
+sudo nano /etc/X11/xorg.conf.d/30-touchpad.conf
+```
+Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+    Option "Tapping" "on"
+    Option "NaturalScrolling" "false"
+    Option "DisableWhileTyping" "0"
+EndSection
+```
+I also flagged disablewhiletyping to 0, so I can use the touchpad while typing.
+- make sure `dconf read /org/gnome/desktop/peripherals/touchpad/natural-scroll` is false
+- check `xinput list-props "SynPS/2 Synaptics TouchPad"` to make sure natural scrolling is off
 
 ### WIFI
 - I had to plug in a thunderbolt to ethernet to get internet initially, then used macbook guide above to install broadcom-wl-dkms
