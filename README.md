@@ -68,6 +68,9 @@ font:
         family: Fira Code Retina
 ```
 
+If discord fonts have [] blocks and other invalid stuff,
+`sudo pacman -S noto-fonts-extra` is the fix
+
 
 I'm running a macbook pro mid 2014, so [this guide](https://wiki.archlinux.org/title/MacBookPro11,x) was helpful, but a lot of parts outdated.
 
