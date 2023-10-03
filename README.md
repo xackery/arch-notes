@@ -1,10 +1,8 @@
-[ubuntu](https://github.com/xackery/linux-notes/wiki/ubuntu)
+If install text is too small (retina), run `setfont ter-132b`
 
-If install text is too small, run `setfont ter-132b`
+`archinstall` is the guided installer. Set up each step. Copying network config is needed
 
-`archinstall` is the guided installer. Set up each step.
-
-Yay is handy for non-essential stuff.
+Yay is handy for non-essential stuff. Avoid it for kernal/core stuff
 ```sh
 git clone https://aur.archlinux.org/yay-git.git
 ls -la
@@ -12,6 +10,9 @@ cd yay-git
 makepkg -si
 yay -S name-of-package (for installing a package)
 ```
+
+Flatpak is handy but the alias headache can be annoying for awesomewm integration
+
 
 General idea is search for a `package aur` term, and you'll see a git url. Clicking copies it to clipboard.
 
