@@ -105,6 +105,8 @@ EndSection
 I also flagged disablewhiletyping to 0, so I can use the touchpad while typing.
 - make sure `dconf read /org/gnome/desktop/peripherals/touchpad/natural-scroll` is false
 - check `xinput list-props "SynPS/2 Synaptics TouchPad"` to make sure natural scrolling is off
+- if using firefox and natural scrolling is happening, go to `about:config` and set `mousewheel.default.delta_multiplier_y` to -100
+
 
 ### WIFI
 - I had to plug in a thunderbolt to ethernet to get internet initially, then used macbook guide above to install broadcom-wl-dkms
