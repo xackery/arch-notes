@@ -1,6 +1,17 @@
-If install text is too small (retina), run `setfont ter-132b`
+## Live CD Stuff
+
+If install text is too small (retina), 
+run `setfont ter-132b`
+
+`ip a` make sure an address was found. if not, may need to configure dhcp yourself.
+
+Once you have internet, 
 
 `archinstall` is the guided installer. Set up each step. Copying network config is needed
+
+## Package Managers
+
+### YAY
 
 Yay is handy for non-essential stuff. Avoid it for kernal/core stuff
 ```sh
@@ -11,8 +22,12 @@ makepkg -si
 yay -S name-of-package (for installing a package)
 ```
 
-Flatpak is handy but the alias headache can be annoying for awesomewm integration
+### Flatpak
 
+Flatpak has pretty wide support and is handy with how it sandboxes it's install, but you have to manually alias commands or run annoying flatpak run com.domain.appname commands
+`sudo pacman -S flatpak`
+
+### Source AUR Building
 
 General idea is search for a `package aur` term, and you'll see a git url. Clicking copies it to clipboard.
 
@@ -25,7 +40,8 @@ cd <package name>
 makepkg -si
 ```
 
----dark mode--
+### Dark Mode
+
 With awesomewm, dark mode is basically achieved by:
 `sudo pacman -S lxappearance`
 
@@ -33,8 +49,8 @@ lxappearance handles qt, which a lot of arch stuff tends to use.
 - `gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'` can help too
 
 
--- fonts --
-There's countless founts out there, but my favorite (especially on retina) is [Fira Code Retina](https://aur.archlinux.org/packages/ttf-firacode)
+### Fonts
+Default awesome font on arch sucks, especiall on retina. There's countless fonts out there, but my favorite (especially on retina) is [Fira Code Retina](https://aur.archlinux.org/packages/ttf-firacode)
 ```
 cd ~/src/aur
 git clone https://aur.archlinux.org/ttf-firacode.git
@@ -52,14 +68,17 @@ font:
         family: Fira Code Retina
 ```
 
-[my awesome-wm config is being trackeed elsewhere](https://github.com/xackery/awesome-wm)
 
 I'm running a macbook pro mid 2014, so [this guide](https://wiki.archlinux.org/title/MacBookPro11,x) was helpful, but a lot of parts outdated.
 
--- wifi --
+### WIFI
 - I had to plug in a thunderbolt to ethernet to get internet initially, then used macbook guide above to install broadcom-wl-dkms
 - then I installed networkmanager and networkmanager-applet
 
--- graphics card --
+### Graphics
 - I had to install nvidia-470xx-dkms
 
+
+### AwesomeWM
+
+[my awesome-wm config is being trackeed elsewhere](https://github.com/xackery/awesome-wm)
