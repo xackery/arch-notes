@@ -1,3 +1,6 @@
+1. sudo mkdir /src
+1. sudo chown -R $USER /src
+1. sudo chgrp -R $USER /src
 1. sudo apt install nala (undo history, apt wrapper)
 1. sudo nala install neovim waterfox wine
 1. sudo nala remove hexchat
@@ -26,3 +29,12 @@
     1. if you want to update go, repeat steps and tweak the symolinks to the new version
 1. download vscode
     1. when asked for a keyring, don't put a password
+1. download aseprite
+    1. cd /src
+    1. git clone git@github.com:nilsve/docker-aseprite-linux.git (if permission denied, generate a ssh key)
+        1. ssh-keygen -f ~/.ssh/github (don't put a password)
+        1. cat ~/.ssh/github.pub (copy to clipboard)
+        1. log in to github, click profile pic, settings, ssh keys, add new, paste
+    1. cd docker-aseprite-linux
+1. download docker
+1. as per [this guide](https://docs.docker.com/desktop/install/ubuntu/), run:
