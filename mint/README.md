@@ -2,7 +2,7 @@
 1. sudo chown -R $USER /src
 1. sudo chgrp -R $USER /src
 1. sudo apt install nala (undo history, apt wrapper)
-1. sudo nala install neovim waterfox wine
+1. sudo nala install neovim wine libc6-dev
 1. sudo nala remove hexchat
 1. download [waterfox](https://www.waterfox.net/download/)
     1. tar -xvf waterfox-*.tar.bz2
