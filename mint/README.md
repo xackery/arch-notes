@@ -37,4 +37,26 @@
         1. log in to github, click profile pic, settings, ssh keys, add new, paste
     1. cd docker-aseprite-linux
 1. download docker
-1. as per [this guide](https://docs.docker.com/desktop/install/ubuntu/), run:
+    1. as per [this guide](https://docs.docker.com/desktop/install/ubuntu/), run:
+        https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+        You can run this, because mint doesn't natively support the command:
+        ```
+        # Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  jammy stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+        ```
+
+now run `sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
+and finally `sudo usermod -aG docker $USER`
+`newgrp docker`
+now try `docker run hello-world`
